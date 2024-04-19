@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15...3.27)
-project(tvb_kernels) # Replace 'my_project' with the name of your project
+project(tvb_kernels)
 find_package(Python 3.8 COMPONENTS Interpreter Development.Module REQUIRED)
 
 if (NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
@@ -14,6 +14,5 @@ execute_process(
 list(APPEND CMAKE_PREFIX_PATH "${NB_DIR}")
 find_package(nanobind CONFIG REQUIRED)
 
-nanobind_add_module(tvb_kernels src/tvb_kernels.cpp)
-
-
+nanobind_add_module(tvb_kernels NB_STATIC STABLE_ABI LTO src/tvb_kernels.cpp)
+install(TARGETS tvb_kernels LIBRARY DESTINATION tvb_kernels)

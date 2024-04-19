@@ -68,21 +68,3 @@ void delays2_batch(int bs, int nv, int nh, int t,
         }
     }
 }
-
-template <typename real=float>
-struct CfPreNop {
-  // typename real::real; // ??
-  real operator()(real xj, real xi) { return xi; }
-};
-
-template <typename real=float>
-struct CfPostNop {
-  real operator()(real gx) { return gx; }
-};
-
-template <
-  typename real=float, typename idx=int,
-  typename cfpre=CfPreNop<>, typename cfpost=CfPostNop<> >
-struct Delays2 {
-  void operator()() { }
-};
