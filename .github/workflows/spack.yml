@@ -15,12 +15,14 @@ jobs:
 
     - run: spack mirror add ghcr oci://ghcr.io/maedoc/tvb_kernels
 
-    - run: spack install --use-buildcache only cmake py-nanobind
+    - run: spack buildcache list
+
+    - run: spack install --use-buildcache only --no-check-signature cmake py-nanobind
 
     - name: build and test
       shell: spack-bash {0}
       run: |
-        spack load /d77nyvn /zgovu5m # cmake & py-nanobind
+        spack load cmake py-nanobind
         cmake -S . -B build
         cmake --build build
         PYTHONPATH=$PWD/build python -c 'import tvb_kernels as tk; print(tk)'
