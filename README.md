@@ -18,3 +18,9 @@ Provides some kernels to speed up tricky bits of TVB simulations.
 
 - vjp implementations for gradients
 - 
+
+## mirrors
+
+- https://github.com/maedoc/tvb_kernels
+- https://gitlab.ebrains.eu/woodman/tvb_kernels
+

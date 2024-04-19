@@ -1,0 +1,7 @@
+build:
+  script:
+    - echo building all the things
+
+test:
+  script:
+    - echo testing all the things
