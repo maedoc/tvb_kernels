@@ -18,7 +18,7 @@ jobs:
     - name: build and test
       shell: spack-bash {0}
       run: |
-        spack load cmake
+        spack load /sngrrem  # cmake
         spack load py-nanobind
         export PYTHONPATH=$PWD/build
         cmake -S . -B build
