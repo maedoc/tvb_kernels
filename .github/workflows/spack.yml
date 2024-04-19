@@ -13,14 +13,14 @@ jobs:
         color: true       # Force color output (SPACK_COLOR=always)
         path: spack       # Where to clone Spack
 
-    - run: spack install py-nanobind cmake
+    - run: spack mirror add ghcr oci://ghcr.io/maedoc/tvb_kernels
+
+    - run: spack install --use-buildcache only cmake py-nanobind
 
     - name: build and test
       shell: spack-bash {0}
       run: |
-        spack load /sngrrem  # cmake
-        spack load py-nanobind
-        export PYTHONPATH=$PWD/build
+        spack load /d77nyvn /zgovu5m # cmake & py-nanobind
         cmake -S . -B build
         cmake --build build
-        python -c 'import tvb_kernels as tk; print(tk)'
+        PYTHONPATH=$PWD/build python -c 'import tvb_kernels as tk; print(tk)'
