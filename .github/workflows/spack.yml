@@ -17,7 +17,7 @@ jobs:
 
     - run: spack buildcache list
 
-    - run: spack install --use-buildcache only --no-check-signature cmake py-nanobind
+    - run: spack install --use-buildcache only --no-check-signature cmake py-nanobind py-pytest
 
     - name: build and test
       shell: spack-bash {0}
@@ -25,4 +25,4 @@ jobs:
         spack load cmake py-nanobind
         cmake -S . -B build
         cmake --build build
-        PYTHONPATH=$PWD/build python -c 'import tvb_kernels as tk; print(tk)'
+        PYTHONPATH=$PWD/build pytest tests.py

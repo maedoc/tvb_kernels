@@ -24,3 +24,18 @@ Provides some kernels to speed up tricky bits of TVB simulations.
 - https://github.com/maedoc/tvb_kernels
 - https://gitlab.ebrains.eu/woodman/tvb_kernels
 
+
+## setup environment
+
+### pip
+
+```
+pip install -e '.[dev]'
+```
+
+### spack
+
+### docker
+
+todo
+
