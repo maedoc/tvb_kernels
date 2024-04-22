@@ -13,13 +13,12 @@ jobs:
         color: true       # Force color output (SPACK_COLOR=always)
         path: spack       # Where to clone Spack
 
-    - run: spack mirror add ghcr --autopush --oci-username "${{ github.actor }}" --ocr-password "${{ secrets.GITHUB_TOKEN }}" oci://ghcr.io/maedoc/tvb_kernels
+    - run: spack mirror add ghcr --autopush --oci-username "${{ github.actor }}" --oci-password "${{ secrets.GITHUB_TOKEN }}" oci://ghcr.io/maedoc/tvb_kernels
 
+    # TODO index only after building?
     - run: spack buildcache update-index ghcr
 
     - run: spack install cmake py-nanobind py-pytest
-
-    - run: spack buildcache push ghcr cmake py-nanobind py-pytest
 
     - run: spack buildcache update-index ghcr
 
