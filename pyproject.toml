@@ -21,7 +21,9 @@ classifiers = [
 [project.optional-dependencies]
 dev = [
     "pytest",
-    "nanobind"
+    "nanobind",
+    "scipy",
+    "python-lsp-server[all]"
 ]
 
 [project.urls]

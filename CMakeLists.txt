@@ -16,6 +16,6 @@ execute_process(
 list(APPEND CMAKE_PREFIX_PATH "${NB_DIR}")
 find_package(nanobind CONFIG REQUIRED)
 
-nanobind_add_module(tvb_kernels NB_STATIC STABLE_ABI LTO src/tvb_kernels.cpp)
+nanobind_add_module(tvb_kernels NB_STATIC STABLE_ABI LTO tvb_kernels.cpp)
 install(TARGETS tvb_kernels LIBRARY DESTINATION tvb_kernels)
 target_compile_features(tvb_kernels PRIVATE cxx_std_17)
